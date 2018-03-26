@@ -7,6 +7,6 @@ declare module 'vue/types/options' {
 		PropsDef=PropsDefinition<DefaultProps>,
 		Props=DefaultProps
 	> {
-		headful?: ((vm?: V) => any) | Function
+		headful?: (vm?: V) => { [key: string]: any }
   	}
 }
