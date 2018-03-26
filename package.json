@@ -27,7 +27,6 @@
   "scripts": {
     "dev": "cd demo && poi",
     "build": "babel src/ --presets babel-preset-env --out-dir dist/",
-    "prepublishOnly": "npm run build",
     "postversion": "npm run build"
   },
   "dependencies": {
