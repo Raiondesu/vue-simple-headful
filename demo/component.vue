@@ -6,12 +6,12 @@
 
 <script>
 export default {
-    headful: (vm) => ({
-        title: vm.title,
+    headful: {
+        title: 'vue-headful title',
         description: "vue-headful description",
         keywords: "example, head, javascript",
         image: "http://example.com/preview.png",
-        lang: vm.lang,
+        lang: 'en-US',
         ogLocale: "en-GB",
         url: "http://localhost:4000/",
         html: {
@@ -21,13 +21,6 @@ export default {
         head: {
             'meta[charset]': {charset: 'utf-8'},
         },
-    }),
-    data() {
-        return {
-            title: 'vue-headful title',
-            lang: 'en-US',
-            description: 'desc'
-        };
     },
     mounted() {
         setTimeout(() => {

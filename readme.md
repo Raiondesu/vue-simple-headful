@@ -1,17 +1,38 @@
 # vue-headful
 
+[![npm](https://img.shields.io/npm/v/vue-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful) 
+[![](https://img.shields.io/badge/very-awesome-orange.svg?style=flat-square)](https://github.com/vuejs/awesome-vue#meta-tags)
+[![npm](https://img.shields.io/npm/dt/vue-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful) 
+
+
 vue-headful allows to set the title and several meta tags of your document from any Vue.js view.
 vue-headful is a tiny wrapper around [Headful](https://github.com/troxler/headful), a generic library to set meta tags with JavaScript.
 
+-----
+
 ## Install
 
-```
-npm i vue-headful
-```
+`npm i vue-headful`
+
+## Table Of Contents
+
+ - [Usage](#usage)
+    - [Register the plugin](#register-the-plugin)
+    - [Plugin options](#plugin-options)
+    - [Headful shorthand](#headful-shorthand)
+    - [Use](#use)
+        - [As function](#as-function)
+        - [As arrow-function](#as-arrow-function)
+        - [As data](#as-component-data)
+        - [As object](#as-object)
+    - [Description](#description)
+    - [More](#more)
+
+-----
 
 ## Usage
 
-Register the plugin:
+### Register the plugin
 
 ```js
 import Vue from 'vue';
@@ -24,9 +45,47 @@ new Vue({
 });
 ```
 
-And then use the `vue-headful` component option in every of your views:
+And then [use](#use) the `headful` component option in any of your views.
 
-### As function
+
+### Plugin options
+
+Optinally you can define a custom key to use with your components' options:
+
+```js
+Vue.use(vueHeadful, {
+    key: 'myMetaTags' // custom key for component option
+})
+```
+
+and then in some `component.vue`:
+
+```js
+export default {
+    myMetaTags: {
+        title: 'Yay, a title in my custom option!'
+    }
+}
+```
+
+### Headful shorthand
+
+The plugin also adds a shorthand for headful in every vue instance as `$headful` (or as `$[your custom key]`).
+
+```js
+methods: {
+    someMethod() {
+        this.$headful({ /* your headful tags here */ });
+
+        // or, with the custom key:
+        // this.$myMetaTags({ /* your headful tags here */ });
+    }
+}
+```
+
+### Use
+
+#### As function
 
 ```js
 export default {
@@ -40,7 +99,7 @@ export default {
 }
 ```
 
-### As arrow function
+#### As arrow function
 
 ```js
 export default {
@@ -57,7 +116,7 @@ export default {
 }
 ```
 
-### As component's data
+#### As component data
 
 ```js
 export default {
@@ -73,9 +132,20 @@ export default {
 }
 ```
 
+#### As an object
 
+```js
+export default {
+    headful: {
+        title: 'some title',
+        description: 'yay, a static description'
+    }
+}
+```
 
-## Documentation
+-----
+
+## Description
 
 vue-headful is only a wrapper around [Headful](https://github.com/troxler/headful) and by itself does not do that much.
 vue-headful supports all the [head properties that are supported by Headful](https://github.com/troxler/headful#documentation).
@@ -200,5 +270,7 @@ Also see the non-complete list of meta tags and other head properties you can de
 * `<link rel="canonical">`
 * `<meta property="og:url">`
 * `<meta name="twitter:url">`
+
+## More
 
 For more information on everything you can put into `<head>`, have a look at <https://gethead.info/>.

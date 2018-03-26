@@ -14,7 +14,9 @@ export default {
       },
       created() {
         if (this[key]) {
-          this.$set(this, key, this.$options[key].bind(this, this)());
+          const head = typeof this.$options[key] === 'function' ? this.$options[key].bind(this, this)() : this.$options[key];
+          
+          this.$set(this, key, head);
           this.$watch(key, headful, { deep: true, immediate: true });
         }
       }
