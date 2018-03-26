@@ -11,31 +11,75 @@ npm i vue-headful
 
 ## Usage
 
-Register the component:
+Register the plugin:
 
 ```js
 import Vue from 'vue';
 import vueHeadful from 'vue-headful';
 
-Vue.component('vue-headful', vueHeadful);
+Vue.use(vueHeadful);
 
 new Vue({
     // your configuration
 });
 ```
 
-And then use the `vue-headful` component in every of your views:
+And then use the `vue-headful` component option in every of your views:
 
-```html
-<template>
-    <div>
-        <vue-headful
-            title="Title from vue-headful"
-            description="Description from vue-headful"
-        />
-    </div>
-</template>
+### As function
+
+```js
+export default {
+    headful() {
+        return {
+            // Supports Vue component's `this` context
+            title: 'some title of ' + this.someString,
+            description: 'yay, a static description'
+        }
+    },
+    data() {
+        return {
+            someString: 'string'
+        }
+    }
+}
 ```
+
+### As arrow function
+
+```js
+export default {
+    headful: vm => ({
+        // Supports Vue component's `this` context through an argument
+        title: 'some title of ' + vm.someString,
+        description: 'yay, a static description'
+    }),
+    data() {
+        return {
+            someString: 'string'
+        }
+    }
+}
+```
+
+### As component's data
+
+```js
+export default {
+    data() {
+        const title = 'some title of ' + this.someString;
+        return {
+            someString: 'string',
+            headful: {
+                title: title,
+                description: 'yay, a static description'
+            }
+        }
+    }
+}
+```
+
+
 
 ## Documentation
 
@@ -43,52 +87,64 @@ vue-headful is only a wrapper around [Headful](https://github.com/troxler/headfu
 vue-headful supports all the [head properties that are supported by Headful](https://github.com/troxler/headful#documentation).
 You can find a non-complete list of head properties in the following example:
 
-```html
-<vue-headful
-    title=""
-    description=""
-    keywords=""
-    image=""
-    lang=""
-    ogLocale=""
-    url=""
-/>
+```js
+headful() {
+    return {
+        title: ""
+        description: ""
+        keywords: ""
+        image: ""
+        lang: ""
+        ogLocale: ""
+        url: ""
+    }
+}
 ```
 
 If there are any other head properties or attributes you want to set, you can use `html` (for arbitrary elements in the whole document) or `head` (for elements within `<head>`) as follows.
 The selectors can be any valid CSS selector.
 
-```html
-<vue-headful
-    :html="{
-        body: {id: 'aPageId'},
-        h1: {'data-foo': 'bar'},
-    }"
-    :head="{
-        'meta[charset]': {charset: 'utf-8'},
-    }"
-/>
+```js
 
-<!-- Results in:
+headful() {
+    return {
+        html: {
+            body: { id: 'aPageId' },
+            h1: { 'data-foo': 'bar' },
+        },
+        head: {
+            'meta[charset]': { charset: 'utf-8' },
+        }
+    }
+}
+```
+
+```html
+<!-- Results in: -->
 <head>
     <meta charset="utf-8">
 </head>
 <body id="aPageId">
 <h1 data-foo="bar"></h1>
--->
 ```
 
-If you want to **remove a previously defined attribute from an element**, you can set it to `undefined` as in the example below:
+If you want to **remove a previously defined property**, you can set it to `undefined` as in the example below:
 
-```html
-<vue-headful :title="undefined"/>
-<!-- Results in:
+```js
+headful() {
+    return {
+        title: undefined
+    }
+}
+/* Results in:
 <title></title>
 <meta itemprop="name">
 <meta property="og:title">
 <meta name="twitter:title">
--->
+*/
 ```
+
+**IMPORTANT**
 
 Note that neither Headful nor vue-headful add missing HTML elements, they only add attribute values.
 So it is important that you add everything that you want to have populated in your HTML first.
@@ -113,20 +169,13 @@ For example, to specify the title and description you have to prepare the HTML a
 </html>
 ```
 
-vue-headful also supports dynamic properties (e.g. `v-bind:title="variableName"` or `:title="variableName"`) and adds watchers to everything.
+vue-headful also supports dynamic properties and adds watchers to everything.
 That means you can also set head properties asynchronously, for example after an API request.
 
 ```html
-<template>
-    <vue-headful
-        :title="title"
-        description="Static description"
-    />
-</template>
-
 <script>
     export default {
-        data() {
+        headful() {
             return {
                 title: 'Dynamic title',
             };
@@ -134,7 +183,7 @@ That means you can also set head properties asynchronously, for example after an
         mounted() {
             // dummy async operation to show watcher on properties
             setTimeout(() => {
-                this.title = 'Dynamic async title';
+                this.headful.title = 'Dynamic async title';
             }, 3000);
         },
     };

@@ -22,20 +22,21 @@
     "readme.md"
   ],
   "main": "dist/vue-headful.js",
+  "types": "types",
   "repository": "github:troxler/vue-headful",
   "scripts": {
-    "dev": "(cd demo; poi)",
+    "dev": "cd demo && poi",
     "build": "babel src/ --presets babel-preset-env --out-dir dist/",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "headful": "1.x"
+    "headful": "1.x",
+    "vue": "2.5.13"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.6.1",
-    "poi": "9.6.10",
-    "vue": "2.5.13"
+    "poi": "9.6.10"
   },
   "peerDependencies": {
     "vue": "2.x"

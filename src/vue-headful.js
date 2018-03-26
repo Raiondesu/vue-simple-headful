@@ -1,31 +1,24 @@
 import headful from 'headful';
 
-export default {
-    name: 'vue-headful',
-    props: Object.keys(headful.props),
+export default function (Vue, options) {
+  Object.defineProperty(Vue.prototype, '$headful', { get: () => headful });
+
+  const key = (options && options.key) || 'headful';
+
+  Vue.mixin({
+    beforeCreate() {
+      if (this.$options[key]) {
+        if (!this.$options.computed) {
+          this.$options.computed = {};
+        }
+        
+        this.$options.computed[key] = this.$options[key].bind(this, this);
+      }
+    },
     created() {
-        headful(getPropsData(this));
-    },
-    watch: extendPropFunctionsWithPropList(headful.props),
-    render() {
-    },
+      if (this[key]) {
+        this.$watch(key, headful, { deep: true, immediate: true });
+      }
+    }
+  })
 };
-
-/**
- * Extends the prop functions for the watcher with a list of declared props on the component.
- * That is necessary so that, for example, a later change to `lang` does not overwrite `ogLocale`.
- */
-function extendPropFunctionsWithPropList(headfulProps) {
-    return Object.keys(headfulProps).reduce((watchers, propName) => {
-        return Object.assign({}, watchers, {
-            [propName]: function (newPropValue) {
-                // add list of props to avoid overwriting other head properties
-                return headfulProps[propName](newPropValue, getPropsData(this));
-            },
-        });
-    }, {});
-}
-
-function getPropsData(vueInstance) {
-    return vueInstance.$options.propsData;
-}
