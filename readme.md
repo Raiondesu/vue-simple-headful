@@ -1,8 +1,8 @@
 # vue-headful
 
-[![npm](https://img.shields.io/npm/v/vue-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful) 
+[![](https://img.shields.io/npm/v/vue-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful) 
 [![](https://img.shields.io/badge/very-awesome-orange.svg?style=flat-square)](https://github.com/vuejs/awesome-vue#meta-tags)
-![npm](https://img.shields.io/npm/dt/vue-headful.svg?style=flat-square)
+[![](https://img.shields.io/npm/dt/vue-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful)
 
 
 vue-headful allows to set the title and several meta tags of your document from any Vue.js view.
