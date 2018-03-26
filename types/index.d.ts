@@ -1,4 +1,4 @@
-import { PluginFunction } from "vue";
+import Vue, { PluginFunction } from "vue";
 
 declare module 'vue/types/options' {
 	interface ComponentOptions<
@@ -16,4 +16,8 @@ declare module 'vue/types/options' {
 export default interface Plugin {
 	install: PluginFunction<{ key: string }>,
 	version: number
+}
+
+export interface Headful {
+
 }

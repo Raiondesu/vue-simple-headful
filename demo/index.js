@@ -1,15 +1,13 @@
 import Vue from 'vue';
 import vueHeadful from '../src/vue-headful';
-import aComponent from './component';
+import root from './root';
 
 console.log('vue-headful:', 'v' + vueHeadful.version);
 
 Vue.use(vueHeadful);
-Vue.component('a-component', aComponent);
+Vue.component('root', root);
 
 new Vue({
     el: '#app',
-    render(createElement) {
-        return createElement('a-component');
-    },
+    render: h => h('root')
 });
