@@ -22,7 +22,7 @@ vue-headful is a tiny wrapper around [Headful](https://github.com/troxler/headfu
         - [As function](#as-function)
         - [As arrow-function](#as-arrow-function)
         - [As data](#as-component-data)
-        - [As object](#as-object)
+        - [As an object](#as-an-object)
     - [Description](#description)
     - [More](#more)
 
