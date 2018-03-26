@@ -1,22 +1,18 @@
 import headful from 'headful';
 
 export default function (Vue, options) {
-  Object.defineProperty(Vue.prototype, '$headful', { get: () => headful });
+  const key = (options || {}).key || 'headful';
 
-  const key = (options && options.key) || 'headful';
+  Object.defineProperty(Vue.prototype, `$${key}`, { get: () => headful });
 
   Vue.mixin({
-    beforeCreate() {
-      if (this.$options[key]) {
-        if (!this.$options.computed) {
-          this.$options.computed = {};
-        }
-        
-        this.$options.computed[key] = this.$options[key].bind(this, this);
-      }
+    data() {
+      if (!this.$options[key]) return {};
+      return { headful: {} };
     },
     created() {
       if (this[key]) {
+        this.$set(this, key, this.$options[key].bind(this, this)());
         this.$watch(key, headful, { deep: true, immediate: true });
       }
     }

@@ -30,16 +30,11 @@ And then use the `vue-headful` component option in every of your views:
 
 ```js
 export default {
-    headful() {
+    // Supports Vue component's `this` context through an argument
+    headful(vm) {
         return {
-            // Supports Vue component's `this` context
-            title: 'some title of ' + this.someString,
+            title: 'some title',
             description: 'yay, a static description'
-        }
-    },
-    data() {
-        return {
-            someString: 'string'
         }
     }
 }
@@ -67,11 +62,10 @@ export default {
 ```js
 export default {
     data() {
-        const title = 'some title of ' + this.someString;
         return {
             someString: 'string',
             headful: {
-                title: title,
+                title: 'title',
                 description: 'yay, a static description'
             }
         }

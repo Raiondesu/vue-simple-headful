@@ -26,6 +26,7 @@ export default {
         return {
             title: 'vue-headful title',
             lang: 'en-US',
+            description: 'desc'
         };
     },
     mounted() {
@@ -34,7 +35,6 @@ export default {
             this.headful.title = 'vue-headful title (updated)';
             this.headful.lang = 'de-DE';
             console.log(this.headful)
-            // this.$headful(this.headful)
         }, 5000);
     },
 };
