@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <vue-headful v-bind="headful"/> -->
+        {{ headful.title }}
     </div>
 </template>
 
