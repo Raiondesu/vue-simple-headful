@@ -224,6 +224,8 @@ If you want to **remove a previously defined attribute from an element**, you ca
 
 ```html
 <vue-headful :title="undefined"/>
+```
+
 
 -----
 
@@ -394,3 +396,5 @@ Also see the non-complete list of meta tags and other head properties you can de
 ## More
 
 For more information on everything you can put into `<head>`, have a look at <https://gethead.info/>.
+
+Demo: https://verywow.github.io/vue-simple-headful/
