@@ -1,12 +1,18 @@
 import Vue, { PluginObject } from 'vue';
-
 import headful from 'headful';
+
+interface Plugin extends PluginObject<{ key: string }> {
+	version: number
+}
 
 const plugin: Plugin = {
   install (Vue, options) {
     const key = (options && options.key) || 'headful';
 
     Object.defineProperty(Vue.prototype, `$${key}`, { get: () => headful });
+
+    if (window && !window[key])
+      window[key] = headful;
 
     Vue.mixin({
       data() {
@@ -26,6 +32,10 @@ const plugin: Plugin = {
   version: require('./package.json').version
 };
 
+if (window && window['Vue']) {
+  plugin.install(window['Vue']);
+}
+
 export default plugin;
 
 declare module 'vue/types/options' {
@@ -39,13 +49,4 @@ declare module 'vue/types/options' {
 	> {
 		headful?: (vm?: V) => { [key: string]: any }
   	}
-}
-
-// declare module '*.json' {
-//   const str: string;
-// 	export default str;
-// }
-
-interface Plugin extends PluginObject<{ key: string }> {
-	version: number
 }

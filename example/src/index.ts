@@ -9,4 +9,3 @@ new Vue({
   el: 'app',
   render: views
 });
-

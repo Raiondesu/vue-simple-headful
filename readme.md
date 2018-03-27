@@ -1,12 +1,13 @@
-# vue-headful
+# vue-simple-headful
 
-[![](https://img.shields.io/npm/v/vue-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful) 
+[![](https://img.shields.io/npm/v/vue-simple-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful)
 [![](https://img.shields.io/badge/very-awesome-orange.svg?style=flat-square)](https://github.com/vuejs/awesome-vue#meta-tags)
-[![](https://img.shields.io/npm/dt/vue-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful)
+[![](https://img.shields.io/npm/dt/vue-simple-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful)
 
 
-vue-headful allows to set the title and several meta tags of your document from any Vue.js view.
-vue-headful is a tiny wrapper around [Headful](https://github.com/troxler/headful), a generic library to set meta tags with JavaScript.
+This is a direct and fully reworked fork of [`vue-headful`](https://github.com/troxler/vue-headful). It is meant to make headful interactions simpler and more diverse for Vue.js.
+
+`vue-simple-headful` is a tiny wrapper around [Headful](https://github.com/troxler/headful), a generic library to set meta tags with JavaScript.
 
 `npm i vue-headful`
 
