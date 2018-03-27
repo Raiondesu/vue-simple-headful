@@ -5,11 +5,12 @@
 [![](https://img.shields.io/npm/dt/vue-simple-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful)
 
 
-This is a direct and fully reworked fork of [`vue-headful`](https://github.com/troxler/vue-headful). It is meant to make headful interactions simpler and more diverse for Vue.js.
+This is a direct and fully reworked fork of [`vue-headful`](https://github.com/troxler/vue-headful). It is meant to make headful interactions simpler and more diverse for Vue.js. It can be used as a replacement for original `vue-headful` if more simplicity or richer functionality needed.
 
 `vue-simple-headful` is a tiny wrapper around [Headful](https://github.com/troxler/headful), a generic library to set meta tags with JavaScript.
 
-`npm i vue-headful`
+`npm i -S vue-headful`
+`yarn add vue-headful`
 
 -----
 
@@ -19,11 +20,12 @@ This is a direct and fully reworked fork of [`vue-headful`](https://github.com/t
     - [Register the plugin](#register-the-plugin)
     - [Plugin options](#plugin-options)
     - [Headful shorthand](#headful-shorthand)
-    - [Use](#use)
+    - [Plugin usage](#plugin-usage)
         - [As function](#as-function)
         - [As arrow-function](#as-arrow-function)
         - [As data](#as-component-data)
         - [As an object](#as-an-object)
+    - [Component usage](#component-usage)
     - [Description](#description)
     - [More](#more)
 
@@ -44,12 +46,15 @@ new Vue({
 });
 ```
 
-And then [use](#use) the `headful` component option in any of your views.
+And then [use](#plugin-usage) the `headful` component option in any of your views.
 
+-----
 
 ### Plugin options
 
-Optinally you can define a custom key to use with your components' options:
+Optinally you can define custom opions for a plugin:
+
+#### 1. A custom key to use with your components' options:
 
 ```js
 Vue.use(vueHeadful, {
@@ -67,6 +72,35 @@ export default {
 }
 ```
 
+#### 2. A boolean flag if you want to use a special *vue-component* (false by default):
+
+
+```js
+Vue.use(vueHeadful, {
+  // key: 'myMetaTags', // custom key for component option (optional)
+  component: true
+})
+```
+
+then in any template:
+
+```html
+<template>
+  <!-- or <vue-my-meta-tags> if using custom key "myMetaTags" -->
+  <vue-headful
+      title=""
+      description=""
+      keywords=""
+      image=""
+      lang=""
+      ogLocale=""
+      url=""
+  />
+</template>
+```
+
+-----
+
 ### Headful shorthand
 
 The plugin also adds a shorthand for headful in every vue instance as `$headful` (or as `$[your custom key]`).
@@ -82,7 +116,15 @@ methods: {
 }
 ```
 
-### Use
+### Headful component
+
+Plugin also adds a component, if option
+
+```html
+
+```
+
+### Plugin Usage
 
 #### As function
 
@@ -144,42 +186,118 @@ export default {
 
 -----
 
-## Description
+### Component Usage
 
-vue-headful is only a wrapper around [Headful](https://github.com/troxler/headful) and by itself does not do that much.
-vue-headful supports all the [head properties that are supported by Headful](https://github.com/troxler/headful#documentation).
+vue-headful component supports all the [head properties that are supported by Headful](https://github.com/troxler/headful#documentation).
 You can find a non-complete list of head properties in the following example:
 
-```js
-headful() {
-    return {
-        title: ""
-        description: ""
-        keywords: ""
-        image: ""
-        lang: ""
-        ogLocale: ""
-        url: ""
-    }
-}
+```html
+<vue-headful
+    title=""
+    description=""
+    keywords=""
+    image=""
+    lang=""
+    ogLocale=""
+    url=""
+/>
 ```
 
 If there are any other head properties or attributes you want to set, you can use `html` (for arbitrary elements in the whole document) or `head` (for elements within `<head>`) as follows.
 The selectors can be any valid CSS selector.
 
+```html
+<vue-headful
+    :html="{
+        body: {id: 'aPageId'},
+        h1: {'data-foo': 'bar'},
+    }"
+    :head="{
+        'meta[charset]': {charset: 'utf-8'},
+    }"
+/>
+
+<!-- Results in:
+<head>
+    <meta charset="utf-8">
+</head>
+<body id="aPageId">
+<h1 data-foo="bar"></h1>
+-->
+```
+
+If you want to **remove a previously defined attribute from an element**, you can set it to `undefined` as in the example below:
+
+```html
+<vue-headful :title="undefined"/>
+
+-----
+
+## Description
+
+vue-simple-headful is only a wrapper around [Headful](https://github.com/troxler/headful) and by itself does not do that much.
+
+vue-simple-headful supports all the [head properties that are supported by Headful](https://github.com/troxler/headful#documentation).
+You can find a non-complete list of head properties in the following example:
+**JS**:
+
+```js
+headful: {
+  title: ""
+  description: ""
+  keywords: ""
+  image: ""
+  lang: ""
+  ogLocale: ""
+  url: ""
+}
+```
+
+**HTML**
+
+```html
+<vue-headful
+    title=""
+    description=""
+    keywords=""
+    image=""
+    lang=""
+    ogLocale=""
+    url=""
+/>
+```
+
+If there are any other head properties or attributes you want to set, you can use `html` (for arbitrary elements in the whole document) or `head` (for elements within `<head>`) as follows.
+The selectors can be any valid CSS selector.
+
+**JS**:
+
 ```js
 
-headful() {
-    return {
-        html: {
-            body: { id: 'aPageId' },
-            h1: { 'data-foo': 'bar' },
-        },
-        head: {
-            'meta[charset]': { charset: 'utf-8' },
-        }
-    }
+headful: {
+  html: {
+      body: { id: 'aPageId' },
+      h1: { 'data-foo': 'bar' },
+  },
+  head: {
+      'meta[charset]': { charset: 'utf-8' },
+  }
 }
+```
+
+**HTML**:
+
+
+```html
+<vue-headful
+    :html="{
+        body: {id: 'aPageId'},
+        h1: {'data-foo': 'bar'},
+    }"
+    :head="{
+        'meta[charset]': {charset: 'utf-8'},
+    }"
+/>
 ```
 
 ```html
@@ -193,12 +311,21 @@ headful() {
 
 If you want to **remove a previously defined property**, you can set it to `undefined` as in the example below:
 
+**JS**:
+
 ```js
-headful() {
-    return {
-        title: undefined
-    }
+headful:{
+  title: undefined
 }
+```
+
+**HTML**:
+
+```html
+<vue-headful :title="undefined"/>
+```
+
+```html
 /* Results in:
 <title></title>
 <meta itemprop="name">
