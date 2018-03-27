@@ -118,14 +118,6 @@ methods: {
 }
 ```
 
-### Headful component
-
-Plugin also adds a component, if option
-
-```html
-
-```
-
 ### Plugin Usage
 
 #### As function
