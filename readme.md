@@ -26,8 +26,8 @@ This is a direct and fully reworked fork of [`vue-headful`](https://github.com/t
         - [As data](#as-component-data)
         - [As an object](#as-an-object)
     - [Component usage](#component-usage)
-    - [Description](#description)
-    - [More](#more)
+  - [Description](#description)
+  - [More](#more)
 
 -----
 
