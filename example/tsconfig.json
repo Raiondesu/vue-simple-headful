@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "es2015",
+      "es5"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "alwaysStrict": true,
+    "skipLibCheck": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "pretty": true,
+    "diagnostics": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@": ["./"],
+      "~": ["./assets"],
+      "views": ["./views"],
+      "components": ["./views/components"],
+      "pages": ["./views/pages"],
+      "router": ["./router"],
+      "store": ["./store"],
+      "plugins": ["./plugins"],
+      "vue-headful": ["../../"]
+    },
+    "types": [
+      "vue-typescript-import-dts"
+    ]
+  }
+}
