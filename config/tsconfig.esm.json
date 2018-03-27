@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "noEmit": true,
-    "target": "es5",
-		"moduleResolution": "node",
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "node",
     "lib": [
       "dom",
       "es2015",
@@ -16,6 +16,15 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "sourceMap": true
-  }
+    "sourceMap": true,
+    "baseUrl": "../",
+    "outDir": "../dist/esm/index.js",
+    "typeRoots": [
+      "../node_modules/@types",
+      "../node_modules/vue/types"
+    ]
+  },
+  "files": [
+    "../index.ts"
+  ]
 }
