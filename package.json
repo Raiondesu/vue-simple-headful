@@ -1,6 +1,6 @@
 {
   "name": "vue-simple-headful",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A simpler ts-friendly vue-headful alternative",
   "author": "Raiondesu <a.raiondesu@gmail.com>",
   "license": "MIT",
