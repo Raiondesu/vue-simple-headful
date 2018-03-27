@@ -4,6 +4,8 @@
 [![](https://img.shields.io/badge/very-awesome-orange.svg?style=flat-square)](https://github.com/vuejs/awesome-vue#meta-tags)
 [![](https://img.shields.io/npm/dt/vue-simple-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful)
 
+> A simple ts-friendly meta-tag manager for Vue.js
+
 
 This is a direct and fully reworked fork of [`vue-headful`](https://github.com/troxler/vue-headful). It is meant to make headful interactions simpler and more diverse for Vue.js. It can be used as a replacement for original `vue-headful` if more simplicity or richer functionality needed.
 
