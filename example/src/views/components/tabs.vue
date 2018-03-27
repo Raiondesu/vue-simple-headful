@@ -22,9 +22,9 @@
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><symbol id="topleft" viewBox="0 0 214 29" ><path d="M14.3 0.1L214 0.1 214 29 0 29C0 29 12.2 2.6 13.2 1.1 14.3-0.4 14.3 0.1 14.3 0.1Z"/></symbol><symbol id="topright" viewBox="0 0 214 29"><use xlink:href="#topleft"/></symbol><clipPath id="crop"><rect class="mask" width="100%" height="100%" x="0"/></clipPath></defs><svg width="50%" height="100%" transfrom="scale(-1, 1)"><use xlink:href="#topleft" width="214" height="29" class="chrome-tab-background"/><use xlink:href="#topleft" width="214" height="29" class="chrome-tab-shadow"/></svg><g transform="scale(-1, 1)"><svg width="50%" height="100%" x="-100%" y="0"><use xlink:href="#topright" width="214" height="29" class="chrome-tab-background"/><use xlink:href="#topright" width="214" height="29" class="chrome-tab-shadow"/></svg></g></svg>
         </div>
         <div class="chrome-tab-favicon" style="background-image: url('https://assets-cdn.github.com/favicon.ico')"></div>
-        <div class="chrome-tab-title">Raiondesu/vue-simple-headful: A simpler vue-headful alternative</div>
+        <div class="chrome-tab-title">VeryWow/vue-simple-headful: A simpler vue-headful alternative</div>
         <div class="chrome-tab-close" @click="showGithub = false"></div>
-        <a class="github" href="https://github.com/Raiondesu/vue-simple-headful" target="_blank"></a>
+        <a class="github" href="https://github.com/VeryWow/vue-simple-headful" target="_blank"></a>
       </div>
     </div>
     <div class="chrome-content" v-once v-pre>
