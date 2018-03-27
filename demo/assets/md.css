@@ -1,13 +1,8 @@
-  .markdown-body {
-    /* background-color: white; */
-    float: left;
+  body {
+    background-color: white;
     max-width: 790px;
     margin: 0 auto;
     padding: 30px 0;
-    height: 100%;
-    display: block;
-    width: 100%;
-    /* padding: 0; */
   }
   
   .markdown-body {
