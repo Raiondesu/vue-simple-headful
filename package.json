@@ -4,7 +4,7 @@
   "description": "A simple ts-friendly meta-tag manager for Vue.js",
   "author": "Raiondesu <a.raiondesu@gmail.com>",
   "license": "MIT",
-  "repository": "github:Raiondesu/vue-headful",
+  "repository": "github:Raiondesu/vue-simple-headful",
   "homepage": "https://raiondesu.github.io/vue-simple-headful/",
   "bugs": "https://github.com/Raiondesu/vue-simple-headful/issues",
   "files": [
