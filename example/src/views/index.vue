@@ -10,6 +10,7 @@
         <p>Also, you can open the console and update the title with <code>changeTitle</code> function.</p>
         <br>
         <hr>
+        <br>
       </div>
       <div class="markdown-body" v-html="md" v-once></div>
     </div>
