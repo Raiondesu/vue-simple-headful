@@ -20,7 +20,8 @@
   "author": "troxler",
   "files": [
     "dist",
-    "readme.md"
+    "readme.md",
+    "types"
   ],
   "main": "dist/vue-headful.js",
   "types": "types",
