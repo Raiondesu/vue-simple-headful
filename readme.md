@@ -1,8 +1,8 @@
 # vue-simple-headful
 
-[![](https://img.shields.io/npm/v/vue-simple-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful)
+[![](https://img.shields.io/npm/v/vue-simple-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-simple-headful)
 [![](https://img.shields.io/badge/very-awesome-orange.svg?style=flat-square)](https://github.com/vuejs/awesome-vue#meta-tags)
-[![](https://img.shields.io/npm/dt/vue-simple-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-headful)
+[![](https://img.shields.io/npm/dt/vue-simple-headful.svg?style=flat-square)](https://www.npmjs.com/package/vue-simple-headful)
 
 > A simple ts-friendly meta-tag manager for Vue.js
 
