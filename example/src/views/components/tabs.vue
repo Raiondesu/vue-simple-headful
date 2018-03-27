@@ -24,7 +24,7 @@
         <div class="chrome-tab-favicon" style="background-image: url('https://assets-cdn.github.com/favicon.ico')"></div>
         <div class="chrome-tab-title">Raiondesu/vue-simple-headful: A simpler vue-headful alternative</div>
         <div class="chrome-tab-close" @click="showGithub = false"></div>
-        <a class="github" href="https://github.com/troxler/vue-headful" target="_blank"></a>
+        <a class="github" href="https://github.com/Raiondesu/vue-simple-headful" target="_blank"></a>
       </div>
     </div>
     <div class="chrome-content" v-once v-pre>
