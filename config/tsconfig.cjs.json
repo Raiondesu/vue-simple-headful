@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "es2015",
+      "es5"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "alwaysStrict": true,
+    "skipLibCheck": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "baseUrl": "../",
+    "outDir": "../dist/cjs/index.js",
+    "typeRoots": [
+      "../node_modules/@types",
+      "../node_modules/vue/types"
+    ]
+  },
+  "files": [
+    "../index.ts"
+  ]
+}
