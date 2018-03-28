@@ -5,9 +5,7 @@ export interface Headful {
   [key: string]: any
 }
 
-export interface Plugin extends PluginObject<{ key?: string, component?: boolean }> {
-  version: string
-}
+export interface Plugin extends PluginObject<{ key?: string, component?: boolean }> {}
 
 declare const plugin: Plugin;
 

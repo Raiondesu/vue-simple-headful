@@ -41,8 +41,7 @@ const plugin: Plugin = {
         }
       }
     })
-  },
-  version: require('./package.json').version
+  }
 };
 
 if (window && window['Vue']) {
