@@ -13,6 +13,6 @@ declare module "vue/types/options" {
 
 declare module "vue/types/vue" {
   interface Vue {
-    $headful?: Headful | (() => Headful)
+    $headful<T extends object>(props: T): void
   }
 }
