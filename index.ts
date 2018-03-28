@@ -1,12 +1,8 @@
-import Vue, { PluginObject } from 'vue';
+import Vue from 'vue';
 import headful from 'headful';
 
-interface Plugin extends PluginObject<{ key: string, component: boolean }> {
-	version: number
-}
-
-const plugin: Plugin = {
-  install (Vue, options) {
+const plugin = {
+  install (Vue, options?: { key: string, component: boolean }) {
     const key = (options && options.key) || 'headful';
 
     Object.defineProperty(Vue.prototype, `$${key}`, { get: () => headful });
@@ -51,17 +47,28 @@ if (window && window['Vue']) {
   plugin.install(window['Vue']);
 }
 
-export default plugin;
 
 declare module 'vue/types/options' {
-	interface ComponentOptions<
-		V extends Vue,
-		Data=DefaultData<V>,
-		Methods=DefaultMethods<V>,
-		Computed=DefaultComputed,
-		PropsDef=PropsDefinition<DefaultProps>,
-		Props=DefaultProps
-	> {
-		headful?: (vm?: V) => { [key: string]: any }
-  	}
+	interface ComponentOptions<V extends Vue> {
+		headful?: {
+      (vm?: V): { [key: string]: any };
+    } | { [key: string]: any }
+  }
 }
+
+declare module 'vue/types/vue' {
+  interface VueConstructor<V extends Vue = Vue> {
+		headful?: {
+      (vm?: any): { [key: string]: any };
+    } | { [key: string]: any }
+  }
+
+  interface Vue {
+		$headful?: {
+      (vm?: any): { [key: string]: any };
+    } | { [key: string]: any }
+  }
+}
+
+
+export default plugin;
