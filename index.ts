@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import headful from 'headful';
 import { Plugin } from './types';
-import './types/vue';
 
 const plugin: Plugin = {
   install (Vue, options) {

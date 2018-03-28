@@ -37,8 +37,7 @@ var plugin = {
                 }
             }
         });
-    },
-    version: require('./package.json').version
+    }
 };
 if (window && window['Vue']) {
     plugin.install(window['Vue']);
