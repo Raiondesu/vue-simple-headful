@@ -1,6 +1,6 @@
 {
   "name": "vue-simple-headful",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A simple ts-friendly meta-tag manager for Vue.js",
   "author": "Raiondesu <a.raiondesu@gmail.com>",
   "license": "MIT",
