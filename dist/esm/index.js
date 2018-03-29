@@ -24,12 +24,14 @@ const plugin = {
             data() {
                 if (!this.$options[key])
                     return {};
-                return { headful: {} };
+                const vm = this;
+                const _headful = this.$options[key];
+                return {
+                    get [key]() { return typeof _headful === 'function' ? _headful.bind(vm, vm)() : _headful; }
+                };
             },
             created() {
                 if (this[key]) {
-                    const head = typeof this.$options[key] === 'function' ? this.$options[key].bind(this, this)() : this.$options[key];
-                    this.$set(this, key, head);
                     this.$watch(key, headful, { deep: true, immediate: true });
                 }
             }

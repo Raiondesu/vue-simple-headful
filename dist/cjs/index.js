@@ -27,12 +27,19 @@ var plugin = {
             data: function () {
                 if (!this.$options[key])
                     return {};
-                return { headful: {} };
+                var vm = this;
+                var _headful = this.$options[key];
+                return _a = {},
+                    Object.defineProperty(_a, key, {
+                        get: function () { return typeof _headful === 'function' ? _headful.bind(vm, vm)() : _headful; },
+                        enumerable: true,
+                        configurable: true
+                    }),
+                    _a;
+                var _a;
             },
             created: function () {
                 if (this[key]) {
-                    var head = typeof this.$options[key] === 'function' ? this.$options[key].bind(this, this)() : this.$options[key];
-                    this.$set(this, key, head);
                     this.$watch(key, headful_1.default, { deep: true, immediate: true });
                 }
             }
