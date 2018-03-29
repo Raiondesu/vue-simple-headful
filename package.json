@@ -7,11 +7,6 @@
   "repository": "github:VeryWow/vue-simple-headful",
   "homepage": "https://VeryWow.github.io/vue-simple-headful/",
   "bugs": "https://github.com/VeryWow/vue-simple-headful/issues",
-  "files": [
-    "dist",
-    "readme.md",
-    "types"
-  ],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "esnext": "dist/esm/index.js",
