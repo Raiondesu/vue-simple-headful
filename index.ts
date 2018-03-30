@@ -1,8 +1,8 @@
-import Vue from 'vue';
+import Vue, { PluginObject } from 'vue';
 import headful from 'headful';
-import { Plugin } from './types';
+import './types/vue';
 
-const plugin: Plugin = {
+const plugin: PluginObject<{ key?: string, component?: boolean }> = {
   install (Vue, options) {
     const key = (options && options.key) || 'headful';
 
@@ -50,3 +50,7 @@ if (window && window['Vue']) {
 }
 
 export default plugin;
+
+export interface Headful {
+  [key: string]: any
+}

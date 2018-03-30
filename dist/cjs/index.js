@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var headful_1 = require("headful");
+require("./types/vue");
 var plugin = {
     install: function (Vue, options) {
         var key = (options && options.key) || 'headful';
