@@ -1,5 +1,4 @@
 import headful from 'headful';
-import './types/vue';
 const plugin = {
     install(Vue, options) {
         const key = (options && options.key) || 'headful';
