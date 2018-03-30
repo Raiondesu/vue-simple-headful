@@ -1,6 +1,5 @@
 import Vue, { PluginObject } from 'vue';
 import headful from 'headful';
-import './types/vue';
 
 const plugin: PluginObject<{ key?: string, component?: boolean }> = {
   install (Vue, options) {
