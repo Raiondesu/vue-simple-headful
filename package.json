@@ -7,9 +7,9 @@
   "repository": "github:VeryWow/vue-simple-headful",
   "homepage": "https://VeryWow.github.io/vue-simple-headful/",
   "bugs": "https://github.com/VeryWow/vue-simple-headful/issues",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "esnext": "dist/esm/index.js",
+  "main": "index.js",
+  "module": "index.js",
+  "esnext": "index.js",
   "types": "types",
   "scripts": {
     "dev": "cd example && webpack-dev-server --mode development --config config/webpack.dev.ts --open --hot",

@@ -1,7 +1,7 @@
-import Vue, { PluginObject } from 'vue';
+import Vue from 'vue';
 import headful from 'headful';
 
-const plugin: PluginObject<{ key?: string, component?: boolean }> = {
+const plugin = {
   install (Vue, options) {
     const key = (options && options.key) || 'headful';
 
@@ -19,7 +19,7 @@ const plugin: PluginObject<{ key?: string, component?: boolean }> = {
           if (this[key]) {
             this.$watch(key, headful, { deep: true, immediate: true });
           } else {
-            Object.keys(this.$props).forEach(p => (p !== key) && this.$watch(p, headful.props[p], { immediate: true }));
+            Object.keys(this.$props).forEach(p => (p !== key) && this.$watch(key + '.' + p, headful.props[p], { immediate: true }));
           }
         },
       });
@@ -35,7 +35,7 @@ const plugin: PluginObject<{ key?: string, component?: boolean }> = {
           get [key]() { return typeof _headful === 'function' ? _headful.bind(vm, vm)() : _headful; }
         };
       },
-      created(this: Vue) {
+      created() {
         if (this[key]) {
           this.$watch(key, headful, { deep: true, immediate: true });
         }
@@ -49,22 +49,3 @@ if (window && window['Vue']) {
 }
 
 export default plugin;
-
-export interface Headful {
-  [key: string]: any
-}
-
-declare module "vue/types/options" {
-  interface ComponentOptions<V extends Vue> {
-    headful?: Headful | {
-      (vm?: V): Headful
-    }
-  }
-}
-
-declare module "vue/types/vue" {
-  interface Vue {
-    $headful<T extends object>(props: T): void
-    headful?: Headful
-  }
-}
