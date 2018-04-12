@@ -11,8 +11,8 @@ This is a direct and fully reworked fork of [`vue-headful`](https://github.com/t
 
 `vue-simple-headful` is a tiny wrapper around [Headful](https://github.com/troxler/headful), a generic library to set meta tags with JavaScript.
 
-`npm i -S vue-headful`
-`yarn add vue-headful`
+`npm i -S vue-simple-headful`
+`yarn add vue-simple-headful`
 
 -----
 
@@ -39,7 +39,7 @@ This is a direct and fully reworked fork of [`vue-headful`](https://github.com/t
 
 ```js
 import Vue from 'vue';
-import vueHeadful from 'vue-headful';
+import vueHeadful from 'vue-simple-headful';
 
 Vue.use(vueHeadful);
 
